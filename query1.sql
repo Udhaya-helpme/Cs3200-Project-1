@@ -1,10 +1,10 @@
 SELECT
-    s.name AS student_name,
-    c.company_name,
-    j.title AS job_title,
-    ir.round_id,
-    ir.round_type,
-    ir.scheduled_date
+  s.name AS student_name,
+  c.company_name,
+  j.title AS job_title,
+  ir.round_id,
+  ir.round_type,
+  ir.scheduled_date
 FROM InterviewRound ir
 JOIN Application a ON ir.app_id = a.app_id
 JOIN Student s ON a.student_id = s.student_id
