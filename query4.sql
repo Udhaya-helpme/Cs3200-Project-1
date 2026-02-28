@@ -1,13 +1,14 @@
-SELECT 
+SELECT
   s.name AS student_name,
-  c.name AS company_name,
+  c.company_name,
   c.industry,
-  a.position,
-  a.status,
+  j.title AS job_title,
+  a.current_status,
   a.deadline
 FROM Application a
-JOIN Student s ON a.studentID = s.studentID
-JOIN Company c ON a.companyID = c.companyID
-WHERE (c.industry = 'Technology' OR c.industry = 'Finance')
-  AND a.status NOT IN ('Rejected', 'Withdrawn')
+JOIN Student s ON a.student_id = s.student_id
+JOIN JobPosting j ON a.job_id = j.job_id
+JOIN Company c ON j.company_id = c.company_id
+WHERE (c.industry IN ('Technology', 'Finance'))
+  AND a.current_status NOT IN ('Rejected', 'Withdrawn')
   AND a.deadline >= DATE('now');

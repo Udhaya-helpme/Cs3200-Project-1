@@ -1,14 +1,15 @@
-SELECT 
-    a.applicationID,
-    s.name AS student_name,
-    c.name AS company_name,
-    CASE 
-        WHEN a.status = 'Offer' THEN '🎉 Success'
-        WHEN a.status = 'Interviewing' THEN 'In Progress'
-        WHEN a.status = 'Applied' THEN 'Waiting'
-        ELSE 'Closed'
-    END AS status_category
+SELECT
+  a.app_id,
+  s.name AS student_name,
+  c.company_name,
+  CASE
+    WHEN a.current_status = 'Offer' THEN '🎉 Success'
+    WHEN a.current_status = 'Interviewing' THEN 'In Progress'
+    WHEN a.current_status = 'Applied' THEN 'Waiting'
+    ELSE 'Closed'
+  END AS status_category
 FROM Application a
-JOIN Student s ON a.studentID = s.studentID
-JOIN Company c ON a.companyID = c.companyID
+JOIN Student s ON a.student_id = s.student_id
+JOIN JobPosting j ON a.job_id = j.job_id
+JOIN Company c ON j.company_id = c.company_id
 ORDER BY s.name;
