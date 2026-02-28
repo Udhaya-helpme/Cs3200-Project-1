@@ -1,7 +1,9 @@
-SELECT name, university
-FROM Student
-WHERE student_id IN (
-  SELECT student_id
-  FROM Application
-  WHERE current_status = 'Offer'
+SELECT
+  s.name,
+  s.university
+FROM Student s
+WHERE s.student_id IN (
+  SELECT a.student_id
+  FROM Application a
+  WHERE a.current_status = 'Offer'
 );
