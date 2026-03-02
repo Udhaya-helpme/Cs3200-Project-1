@@ -4,6 +4,8 @@ Build Project I – Design & Implement a Relational Database
 
 This project implements a relational database for tracking student job and internship applications. The system allows students to manage applications, interview rounds, contacts, offers, tags, and status history.
 
+JobBoard is implemented as a lookup table for job sources. In the current dataset it maintains available job boards, and it can be extended in the future by linking JobPosting to a board_id.
+
 Project structure:
 
 Cs3200-Project-1  
