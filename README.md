@@ -1,28 +1,102 @@
-# Cs3200-Project-1
-BUILD: Project 1 / Design & Implement a Relational Database
+# Cs3200 Project 1
 
-This repository contains the SQLite schema, seed data, verification script, and five required queries for an internship application tracker.
+Project 1 – Design and Implement a Relational Database
 
-## Files
-- sql/schema.sql – create tables and constraints  
-- sql/seed.sql – insert sample data  
-- sql/verify.sql – verification queries and foreign key check  
-- query1.sql – query5.sql – required queries  
-- screenshots/ – query outputs and verification screenshots  
-- Requirement.pdf – written report  
+This project implements a relational database for tracking internship applications. 
+It includes database design, SQL queries, verification scripts, and a simple Node.js + Express web application demonstrating CRUD operations.
 
-## How to Run
-From the project root directory:
+--------------------------------------------------
 
-rm -f sql/app_tracker.db  
-sqlite3 sql/app_tracker.db < sql/schema.sql  
-sqlite3 sql/app_tracker.db < sql/seed.sql  
-sqlite3 sql/app_tracker.db < sql/verify.sql  
+Files
 
-To test individual queries:
+sql/schema.sql
+Creates all database tables and constraints.
 
-sqlite3 sql/app_tracker.db < query1.sql  
+sql/seed.sql
+Inserts sample data into the database.
 
-## Note
-JobBoard is kept as an independent lookup table to maintain a list of job sources (e.g., LinkedIn, Handshake).  
-The current seed data demonstrates managing the source list only. The design can be extended later by adding a board_id foreign key in JobPosting if we want to associate each posting with a specific job board.
+sql/verify.sql
+Runs verification queries and foreign key checks.
+
+query1.sql – query5.sql
+Required SQL queries for the project.
+
+screenshots/
+Contains screenshots of query outputs, verification results, and the web application.
+
+Requirement.pdf
+Written report for the project.
+
+uml_conceptual_model.pdf
+UML conceptual model diagram.
+
+logical_erd.pdf
+Logical ERD diagram.
+
+public/
+Frontend pages for the web application.
+
+app.js
+Node.js Express server.
+
+--------------------------------------------------
+
+Database Setup
+
+Run the following commands from the project root directory:
+
+rm -f sql/app_tracker.db
+sqlite3 sql/app_tracker.db < sql/schema.sql
+sqlite3 sql/app_tracker.db < sql/seed.sql
+sqlite3 sql/app_tracker.db < sql/verify.sql
+
+--------------------------------------------------
+
+Running Individual Queries
+
+sqlite3 sql/app_tracker.db < query1.sql
+sqlite3 sql/app_tracker.db < query2.sql
+sqlite3 sql/app_tracker.db < query3.sql
+sqlite3 sql/app_tracker.db < query4.sql
+sqlite3 sql/app_tracker.db < query5.sql
+
+--------------------------------------------------
+
+Web Application
+
+This project also includes a simple Node.js + Express web application.
+
+The web application provides CRUD functionality for two related tables:
+
+Application  
+InterviewRound  
+
+InterviewRound references Application through the foreign key app_id.
+
+Features include:
+
+View all applications  
+Create a new application  
+Edit an application  
+Delete an application  
+
+View all interview rounds  
+Create a new interview round  
+Edit an interview round  
+Delete an interview round  
+
+--------------------------------------------------
+
+How to Run the Web Application
+
+Install dependencies:
+
+npm install
+
+Start the server:
+
+node app.js
+
+Open the application in your browser:
+
+http://localhost:3000
