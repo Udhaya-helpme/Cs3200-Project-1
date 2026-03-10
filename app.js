@@ -3,10 +3,55 @@ const path     = require("path");
 const Database = require("better-sqlite3");
 
 const app = express();
-const db  = new Database(path.join(__dirname, "internship.db"));
+const db  = new Database(path.join(__dirname, "sql", "app_tracker.db"));
 db.pragma("foreign_keys = ON");
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// ---------- helper APIs for frontend ----------
+
+// get all students
+app.get("/api/students", (req, res) => {
+  const rows = db.prepare(`
+    SELECT student_id, name
+    FROM Student
+    ORDER BY name
+  `).all();
+  res.json(rows);
+});
+
+// get all jobs
+app.get("/api/jobs", (req, res) => {
+  const rows = db.prepare(`
+    SELECT jp.job_id, jp.title, c.company_name
+    FROM JobPosting jp
+    JOIN Company c ON jp.company_id = c.company_id
+    ORDER BY c.company_name
+  `).all();
+  res.json(rows);
+});
+
+// get applications (for interview form dropdown)
+app.get("/api/application-options", (req, res) => {
+  const rows = db.prepare(`
+    SELECT a.app_id,
+           s.name AS student_name,
+           jp.title AS job_title,
+           c.company_name
+    FROM Application a
+    JOIN Student s ON a.student_id = s.student_id
+    JOIN JobPosting jp ON a.job_id = jp.job_id
+    JOIN Company c ON jp.company_id = c.company_id
+    ORDER BY a.app_id
+  `).all();
+
+  res.json(rows);
+});
 
 app.get("/api/applications", (req, res) => {
   const rows = db.prepare(`
