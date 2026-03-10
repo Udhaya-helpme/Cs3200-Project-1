@@ -1,42 +1,42 @@
 # Cs3200 Project 1
 Project 1 – Design and Implement a Relational Database
 
-This project implements a relational database for tracking internship applications. 
-The system stores information about students, companies, job postings, applications, and interview rounds. 
+This project implements a relational database for tracking internship applications.  
+The system stores information about students, companies, job postings, applications, and interview rounds.  
 The project includes the database design, SQL queries, verification scripts, and a simple Node.js + Express web application demonstrating CRUD operations.
 
 --------------------------------------------------
 
 Project Structure
 
-sql/schema.sql
+sql/schema.sql  
 Creates all database tables and constraints.
 
-sql/seed.sql
+sql/seed.sql  
 Inserts sample data into the database.
 
-sql/verify.sql
+sql/verify.sql  
 Runs verification queries and checks foreign key constraints.
 
-query1.sql – query5.sql
+query1.sql, query2.sql, query3.sql, query4.sql, query5.sql  
 Required SQL queries for the project.
 
-screenshots/
+screenshots/  
 Contains screenshots of query outputs, verification results, and web application functionality.
 
-Requirement.pdf
+Requirement.pdf  
 Written report describing the requirements and design.
 
-uml_conceptual_model.pdf
+uml_conceptual_model.pdf  
 UML conceptual model diagram.
 
-logical_erd.pdf
+logical_erd.pdf  
 Logical ERD diagram.
 
-public/
+public/  
 Frontend pages for the web application.
 
-app.js
+app.js  
 Node.js Express server that provides API endpoints.
 
 --------------------------------------------------
@@ -68,22 +68,22 @@ This project also includes a simple Node.js + Express web application.
 
 The web application provides CRUD functionality for two related tables:
 
-Application
-InterviewRound
+Application  
+InterviewRound  
 
-InterviewRound references Application through the foreign key app_id.
+InterviewRound references Application through the foreign key `app_id`.
 
 Features include:
 
-View all applications
-Create a new application
-Edit an application
-Delete an application
+View all applications  
+Create a new application  
+Edit an application  
+Delete an application  
 
-View all interview rounds
-Create a new interview round
-Edit an interview round
-Delete an interview round
+View all interview rounds  
+Create a new interview round  
+Edit an interview round  
+Delete an interview round  
 
 --------------------------------------------------
 
