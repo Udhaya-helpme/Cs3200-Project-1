@@ -1,0 +1,25 @@
+{
+  "name": "cs3200-project-1",
+  "version": "1.0.0",
+  "description": "BUILD: Project 1 / Design & Implement a Relational Database",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Udhaya-helpme/Cs3200-Project-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Udhaya-helpme/Cs3200-Project-1/issues"
+  },
+  "homepage": "https://github.com/Udhaya-helpme/Cs3200-Project-1#readme",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "express": "^5.2.1"
+  }
+}
